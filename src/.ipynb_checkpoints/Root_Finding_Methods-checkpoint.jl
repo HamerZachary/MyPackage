@@ -145,7 +145,6 @@ function DoubleRootSecant(x0,x1,f)
     end
           
     if (print == 1)
-        println("")
         println("Root 1: ", root1)
         println("Root 2: ", root2)
     end
