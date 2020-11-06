@@ -179,7 +179,7 @@ function Newton(x0,f,g)
         end
         
         if(i == iterations-1 & (abs(xnp1-xn) > 1e-7))
-            println("Root not found in ," i, " iterations.")
+            println("Root not found in ", i, " iterations.")
         end
     end
 end
