@@ -6,18 +6,9 @@ function Bisection(a,b,f)
     temp = 0
     
     for i = 1:1000
-        try
-        
-            y1 = abs(f(left))
-            y2 = abs(f(right))
-            
-        catch error
-            if isa(error,UndefVarError)
-                println("The function f(x) is currently undefined.")
-                println("Please define a function and pass it as a parameter into the method.")
-                break
-            end
-        end
+        y1 = abs(f(left))
+        y2 = abs(f(right))
+
         
         if((y2-y1) >= 0)
             temp = right
@@ -52,17 +43,8 @@ function SingleRootSecant(x0,x1,f)
     
     
     for i = 1:1000
-        try
-            
-            xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
-    
-        catch error
-            if isa(error, UndefVarError)
-                println("The function f(x) is currently undefined.")
-                println("Please define a function and pass it as a parameter into the method.")
-                break
-            end
-        end
+        
+        xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
              
         if(xn == xnm1)
             println("Root found in ", i, " iterations.")
@@ -93,17 +75,9 @@ function DoubleRootSecant(x0,x1,f)
     print = 1
     
     for i = 1:1000
-        try
         
-            xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
-        
-        catch error
-            if isa(error,UndefVarError)
-                println("The function f(x) is currently undefined.")
-                println("Please define a function and pass it as a parameter into the method.")
-                break
-            end
-        end
+        xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
+
             
         if(xn == xnm1)
             println("Root 1 found in ", i, " iterations.")
@@ -191,18 +165,10 @@ function Newton(x0,f,g)
     xn = x0
     
     for i = 1:1000
-        try
-            
-            xnp1 = xn - (f(xn)/g(xn))
         
-        catch error
-            if isa(error,UndefVarError)
-                println("Functions are undefined.")
-                println("Please define functions f(x) and g(x) and pass them as parameters.")
-                println("f(x) should be the original function and g(x) should be its derivative.")
-                break
-            end
-        end
+
+        xnp1 = xn - (f(xn)/g(xn))
+
             
         if(abs(xnp1-xn) < 1e-7)
             println("Root found in ", i ," iterations")
