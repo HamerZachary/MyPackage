@@ -89,20 +89,11 @@ function DoubleRootSecant(x0,x1,f)
         
     end
     
-    try
     
-        root2 = root1
-        y1 = f(root1+1)
-        y2 = f(root1-1)
-        factor = 10
-        
-    catch error
-        if isa(error,UndefVarError)
-            y1 = 0
-            y2 = 0
-            print = 0
-        end
-    end
+    root2 = root1
+    y1 = f(root1+1)
+    y2 = f(root1-1)
+    factor = 10
     
     if(y1 > y2)
         
