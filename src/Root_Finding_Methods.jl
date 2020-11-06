@@ -1,4 +1,4 @@
-function Bisection(a,b)
+function Bisection(a,b,f)
     
     left = a
     right = b
@@ -13,7 +13,8 @@ function Bisection(a,b)
             
         catch error
             if isa(error,UndefVarError)
-                println("The function f(x) is currently undefined. Please define a function f(x) to be able to use this method.")
+                println("The function f(x) is currently undefined.")
+                println("Please define a function and pass it as a parameter into the method.")
                 break
             end
         end
@@ -43,7 +44,7 @@ function Bisection(a,b)
     end
 end
 
-function SingleRootSecant(x0,x1)
+function SingleRootSecant(x0,x1,f)
     xnm1 = x1
     xnm2 = x0
     root = 0
@@ -57,7 +58,8 @@ function SingleRootSecant(x0,x1)
     
         catch error
             if isa(error, UndefVarError)
-                println("The function f(x) is currently undefined. Please define a function f(x) to be able to use this method.")
+                println("The function f(x) is currently undefined.")
+                println("Please define a function and pass it as a parameter into the method.")
                 break
             end
         end
@@ -84,7 +86,7 @@ function SingleRootSecant(x0,x1)
     
 end
 
-function DoubleRootSecant(x0,x1)
+function DoubleRootSecant(x0,x1,f)
     xnm1 = x1
     xnm2 = x0
     root1 = 0
@@ -97,7 +99,8 @@ function DoubleRootSecant(x0,x1)
         
         catch error
             if isa(error,UndefVarError)
-                println("The function f(x) is currently undefined. Please define a function f(x) to be able to use this method.")
+                println("The function f(x) is currently undefined.")
+                println("Please define a function and pass it as a parameter into the method.")
                 break
             end
         end
@@ -184,7 +187,7 @@ function DoubleRootSecant(x0,x1)
     end
 end
 
-function Newton(x0)
+function Newton(x0,f,g)
     xn = x0
     
     for i = 1:1000
@@ -195,7 +198,7 @@ function Newton(x0)
         catch error
             if isa(error,UndefVarError)
                 println("Functions are undefined.")
-                println("Please define functions f(x) and g(x).")
+                println("Please define functions f(x) and g(x) and pass them as parameters.")
                 println("f(x) should be the original function and g(x) should be its derivative.")
                 break
             end
