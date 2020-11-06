@@ -27,7 +27,6 @@ function Bisection(a,b,f)
                 println("Root not found in the interval provided")
                 break;
             else
-                println("")
                 println("At x = ", mid, " there is a root, ie y = 0")
                 break
             end
@@ -40,9 +39,9 @@ function SingleRootSecant(x0,x1,f)
     xnm2 = x0
     root = 0
     prnt = 0
+    iterations = 1000
     
-    
-    for i = 1:1000
+    for i = 1:iterations
         
         xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
              
@@ -163,8 +162,9 @@ end
 
 function Newton(x0,f,g)
     xn = x0
+    iterations = 1000
     
-    for i = 1:1000
+    for i = 1:iterations
         
 
         xnp1 = xn - (f(xn)/g(xn))
@@ -177,5 +177,8 @@ function Newton(x0,f,g)
         else
             xn = xnp1
         end
+        
+        if(i == iterations-1 & (abs(xnp1-xn) > 1e-7))
+            println("Root not found in ," i, " iterations.")
     end
 end
