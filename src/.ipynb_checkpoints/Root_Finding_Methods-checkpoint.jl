@@ -27,7 +27,8 @@ function Bisection(a,b,f)
                 println("Root not found in the interval provided")
                 break;
             else
-                println("At x = ", mid, " there is a root, ie y = 0")
+                println("Root found in ", i, " iterations.")
+                println("Root: ", mid)
                 break
             end
         end 
@@ -79,7 +80,6 @@ function DoubleRootSecant(x0,x1,f)
 
             
         if(xn == xnm1)
-            println("Root 1 found in ", i, " iterations.")
             root1 = xn
             break
         else
