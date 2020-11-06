@@ -1,4 +1,4 @@
-function Bisection(a,b)
+function Bisection(a,b,f)
     
     left = a
     right = b
@@ -6,17 +6,8 @@ function Bisection(a,b)
     temp = 0
     
     for i = 1:1000
-        try
-        
-            y1 = abs(f(left))
-            y2 = abs(f(right))
-            
-        catch error
-            if isa(error,UndefVarError)
-                println("The function f(x) is currently undefined. Please define a function f(x) to be able to use this method.")
-                break
-            end
-        end
+        y1 = abs(f(left))
+        y2 = abs(f(right))
         
         if((y2-y1) >= 0)
             temp = right
@@ -43,7 +34,7 @@ function Bisection(a,b)
     end
 end
 
-function SingleRootSecant(x0,x1)
+function SingleRootSecant(x0,x1,f)
     xnm1 = x1
     xnm2 = x0
     root = 0
@@ -51,16 +42,9 @@ function SingleRootSecant(x0,x1)
     
     
     for i = 1:1000
-        try
-            
-            xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
+        
+        xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
     
-        catch error
-            if isa(error, UndefVarError)
-                println("The function f(x) is currently undefined. Please define a function f(x) to be able to use this method.")
-                break
-            end
-        end
              
         if(xn == xnm1)
             println("Root found in ", i, " iterations.")
@@ -84,23 +68,15 @@ function SingleRootSecant(x0,x1)
     
 end
 
-function DoubleRootSecant(x0,x1)
+function DoubleRootSecant(x0,x1,f)
     xnm1 = x1
     xnm2 = x0
     root1 = 0
     print = 1
     
     for i = 1:1000
-        try
         
-            xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
-        
-        catch error
-            if isa(error,UndefVarError)
-                println("The function f(x) is currently undefined. Please define a function f(x) to be able to use this method.")
-                break
-            end
-        end
+        xn = ((xnm2*f(xnm1))-(xnm1*f(xnm2)))/(f(xnm1)-f(xnm2))
             
         if(xn == xnm1)
             println("Root 1 found in ", i, " iterations.")
@@ -184,22 +160,12 @@ function DoubleRootSecant(x0,x1)
     end
 end
 
-function Newton(x0)
+function Newton(x0,f,g)
     xn = x0
     
     for i = 1:1000
-        try
-            
-            xnp1 = xn - (f(xn)/g(xn))
         
-        catch error
-            if isa(error,UndefVarError)
-                println("Functions are undefined.")
-                println("Please define functions f(x) and g(x).")
-                println("f(x) should be the original function and g(x) should be its derivative.")
-                break
-            end
-        end
+        xnp1 = xn - (f(xn)/g(xn))
             
         if(abs(xnp1-xn) < 1e-7)
             println("Root found in ", i ," iterations")
