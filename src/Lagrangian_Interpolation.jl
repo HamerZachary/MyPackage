@@ -31,6 +31,7 @@ function PlotInterpolatedPolynomial(a,b,x,y,n)
     
     for i = 1:length
         yvalues[i] = p(xvalues[i],x,y,n)
+        println(yvalues)
     end
     
     plot(xvalues,yvalues)
