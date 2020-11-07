@@ -23,7 +23,7 @@ function p(t,x,y,n)
     return r
 end
 
-function PlotInterpolatedPolynomial(a,b,x,y,n)
+function PlotInterpolation(a,b,x,y,n)
     
     xvalues = [a:0.1:b;];
     yvalues = [a:0.1:b;];
@@ -31,7 +31,6 @@ function PlotInterpolatedPolynomial(a,b,x,y,n)
     
     for i = 1:length
         yvalues[i] = p(xvalues[i],x,y,n)
-        println(yvalues)
     end
     
     plot(xvalues,yvalues)
