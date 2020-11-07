@@ -24,10 +24,14 @@ function p(t,x,y,n)
 end
 
 function PlotInterpolatedPolynomial(a,b,x,y,n)
-    print = 1
     
-    xvalues = [a:0.1:b;]
-    yvalues = p.(xvalues,x,y,n)
+    xvalues = [a:0.1:b;];
+    yvalues = [a:0.1:b;];
+    length = size(x,1)
+    
+    for i = 1:length
+        yvales[i] = p(xvalues[i],x,y,n)
+    end
     
     plot(xvalues,yvalues)
 end
