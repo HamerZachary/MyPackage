@@ -26,7 +26,7 @@ end
 function PlotInterpolatedPolynomial(a,b,x,y,n)
     print = 1
     
-    xvalues = [a:0.1:b]
+    xvalues = [a:0.1:b;]
     yvalues = p.(xvalues,x,y,n)
     
     plot(xvalues,yvalues)

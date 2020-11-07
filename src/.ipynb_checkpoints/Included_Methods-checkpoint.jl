@@ -22,5 +22,5 @@ function IncludedMethods()
     println("     x[] - Array of x values to interpolate")
     println("     y[] - Array of y values to interpolate")
     println("     n - Number of points being interpolated")
-    prinlnt("     t - Singular point to evaluate in the interpolated polynomial")
+    println("     t - Singular point to evaluate in the interpolated polynomial")
 end
