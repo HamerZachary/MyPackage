@@ -30,7 +30,7 @@ function PlotInterpolatedPolynomial(a,b,x,y,n)
     length = size(x,1)
     
     for i = 1:length
-        yvales[i] = p(xvalues[i],x,y,n)
+        yvalues[i] = p(xvalues[i],x,y,n)
     end
     
     plot(xvalues,yvalues)
