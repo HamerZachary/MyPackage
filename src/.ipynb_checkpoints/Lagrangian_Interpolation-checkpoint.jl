@@ -35,3 +35,16 @@ function PlotInterpolation(a,b,x,y,n)
     
     plot(xvalues,yvalues)
 end
+
+function PlotInverseInterpolation(a,b,x,y,n)
+    
+    xvalues = [a:0.1:b;];
+    yvalues = [a:0.1:b;];
+    length = size(xvalues,1)
+    
+    for i = 1:length
+        xvalues[i] = p(yvalues[i],x,y,n)
+    end
+    
+    plot(yvalues,xvalues)
+end
